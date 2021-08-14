@@ -25,6 +25,7 @@ export class UsersController {
 
     @Post()
     addUser(@Body() user: UserEntity) {
+        console.log(user)
         return this.service.createUser(user);
     }
 
@@ -38,6 +39,7 @@ export class UsersController {
         })
     ) 
     async uploadFile(@Body() user: UserEntity, @UploadedFile() file){
+        console.log(user)
         user.avatar = file.filename;
 
         await this.service.createUser(JSON.parse(JSON.stringify(user)));

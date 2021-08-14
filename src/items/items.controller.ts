@@ -39,7 +39,6 @@ export class ItemsController {
 
     async uploadFile(@Body() item: ItemEntity, @UploadedFile() file){
         item.g_logo = file.filename;
-
         await this.service.createItem(JSON.parse(JSON.stringify(item)));
 
         const response = {
